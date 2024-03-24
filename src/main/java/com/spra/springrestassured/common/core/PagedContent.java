@@ -1,4 +1,4 @@
-package common.core;
+package com.spra.springrestassured.common.core;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
