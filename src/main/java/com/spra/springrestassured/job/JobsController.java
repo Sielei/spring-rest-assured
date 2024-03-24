@@ -3,8 +3,9 @@ package com.spra.springrestassured.job;
 import com.spra.springrestassured.job.core.JobRequest;
 import com.spra.springrestassured.job.core.JobResponse;
 import com.spra.springrestassured.job.core.JobService;
-import common.core.PagedContent;
+import com.spra.springrestassured.common.core.PagedContent;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class JobsController {
 
     @Operation(summary = "Add a new Job post")
     @PostMapping
-    ResponseEntity<JobResponse> addNewJob(@RequestBody JobRequest jobRequest){
+    ResponseEntity<JobResponse> addNewJob(@Valid @RequestBody JobRequest jobRequest){
         var newJob = jobService.addNewJob(jobRequest);
         var location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
@@ -46,7 +47,7 @@ public class JobsController {
     @Operation(summary = "Update a Job Post")
     @PutMapping("/{jobId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void updateJob(@PathVariable("jobId") Long jobId, @RequestBody JobRequest updateJobRequest){
+    void updateJob(@PathVariable("jobId") Long jobId, @Valid @RequestBody JobRequest updateJobRequest){
         jobService.updateJob(jobId, updateJobRequest);
     }
 
