@@ -6,7 +6,7 @@ CREATE SEQUENCE IF NOT EXISTS jobs_id_seq
 CREATE TABLE IF NOT EXISTS jobs (
     id bigint NOT NULL DEFAULT nextval('jobs_id_seq'::regclass),
     created_at timestamp(6) with time zone,
-    date_posted timestamp(6) without time zone,
+    date_posted date not null,
     description text,
     job_link text,
     job_title character varying(255),
