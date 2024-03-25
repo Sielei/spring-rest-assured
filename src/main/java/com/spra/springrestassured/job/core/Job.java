@@ -11,7 +11,7 @@ import java.util.Date;
 @Table(name = "jobs")
 class Job {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
     private String jobTitle;
@@ -19,6 +19,7 @@ class Job {
     private String description;
     @Enumerated(EnumType.STRING)
     private JobType jobType;
+    @Temporal(TemporalType.DATE)
     private Date datePosted;
     private String jobLink;
     @CreationTimestamp
