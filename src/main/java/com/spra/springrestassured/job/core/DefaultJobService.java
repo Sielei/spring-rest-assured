@@ -1,6 +1,6 @@
 package com.spra.springrestassured.job.core;
 
-import common.core.PagedContent;
+import com.spra.springrestassured.common.core.PagedContent;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,6 +32,7 @@ class DefaultJobService implements JobService{
     }
 
     @Override
+    @Transactional
     public void updateJob(Long jobId, JobRequest updateJobRequest) {
         var jobToUpdate = jobRepository.findByIdOrThrow(jobId);
         jobToUpdate.updateJob(updateJobRequest.jobTitle(), updateJobRequest.description(),
@@ -41,6 +42,7 @@ class DefaultJobService implements JobService{
     }
 
     @Override
+    @Transactional
     public void deleteJob(Long jobId) {
         var jobToDelete = jobRepository.findByIdOrThrow(jobId);
         jobRepository.delete(jobToDelete);

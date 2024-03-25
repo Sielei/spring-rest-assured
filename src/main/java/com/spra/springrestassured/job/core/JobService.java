@@ -1,7 +1,7 @@
 package com.spra.springrestassured.job.core;
 
 
-import common.core.PagedContent;
+import com.spra.springrestassured.common.core.PagedContent;
 
 public interface JobService {
     JobResponse addNewJob(JobRequest jobRequest);
