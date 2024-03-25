@@ -5,12 +5,14 @@ import com.spra.springrestassured.job.core.JobResponse;
 import com.spra.springrestassured.job.core.JobService;
 import com.spra.springrestassured.common.core.PagedContent;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+@Tag(name = "Job", description = "The Job API")
 @RestController
 @RequestMapping("/api/v1/jobs")
 public class JobsController {
